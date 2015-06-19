@@ -1,0 +1,14 @@
+nginx_config=/etc/nginx/nginx.conf
+nginx_cmd=/usr/sbin/nginx
+nginx_start=service nginx start
+nginx_stop=service nginx stop
+nginx_restart=service nginx restart
+nginx_user=www-data
+nginx_sites_available=/etc/nginx/sites-available
+nginx_sites_enabled=/etc/nginx/sites-enabled
+uwsgi_config=
+uwsgi_cmd=/usr/bin/uwsgi
+uwsgi_restart=service uwsgi restart
+uwsgi_apps_available=/etc/uwsgi/apps-available
+uwsgi_apps_enabled=/etc/uwsgi/apps-enabled
+virtualenv_cmd=/usr/bin/virtualenv

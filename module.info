@@ -1,0 +1,5 @@
+desc=Nginx uWSGI website
+os_support=debian-linux
+version=1.0
+hidden=1
+

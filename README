@@ -1,0 +1,15 @@
+Virtualmin plugin to deploy websites server through Nginx and uWSGI.
+
+Requires Nginx, uWSGI and Virtualenv.
+
+To serve Python 2 applications install uWSGI plugin python and uWSGI plugin python3 for Python 3.
+`apt-get install uwsgi-plugin-python`
+`apt-get install uwsgi-plugin-python3`
+
+Detailed deployment instruction is in moudule help page.
+
+SSL support is one way: it is either disabled or enabled and all HTTP traffic permanently redirects to HTTPS.
+
+Tested to work with Python 3, Django 1.8.2 under Debian 8.
+
+WARNING: This module does not work under Debian 7, making Python 3.2, uWSGI and Django work together under Debian 7 is a real pain.

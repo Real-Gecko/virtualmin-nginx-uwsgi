@@ -1,0 +1,56 @@
+<header>Virtualmin Nginx uWSGI</header>
+Virtualmin plugin for easy creating websites served by Nginx through uWSGI.
+Usage instructions:
+<ol>
+    <li>Enable this feature on creating new domain.
+    <i>Warging! This module is not compatible with any other "web" plugins such as Virtualmin`s builtin Apache website
+    or Virtualmin`s Nginx plugin.</i></li>
+    <li><b>Beware! After initial domain creation only Nginx config is created, that`s not enough to run complete Python website.</b><br>
+    So, second step would be creation of virtual environment for new website, you can get there by clicking "Services - Configure virtualenv for domain" in domain`s menu<br>
+    Virtual Environment is set up with two options
+    <ul>
+        <li>Python version: 2 or 3</li>
+        <li>Python modules: text area for python modules, accepts the same format as provided by "pip freeze" command,
+        do not use any other format, or setup may fail</li>
+    </ul>
+    </li>
+    <li>
+        Last step is creating uWSGI ini for serving Python app by clicking "Services - Manage Nginx uWSGI website" in domain`s menu.
+        Here you can choose to enable SSL and also you MUST provide wsgi module name, for example<pre>mycooooolwebapp.wsgi:application</pre>
+        where <i>mycoooolwebapp</i> is Django applicatioin name installed in domain`s webroot(%HOME/public_html)
+    </li>
+    <li>
+        You can also add "static" paths in "Additional paths to serve static" textarea. Provide one per line:
+        <pre>
+        static
+        media
+        </pre>
+        This will add additional paths to Nginx config to serve static dirs like this:
+        <pre>
+    location /static {
+        root /home/test.loc/public_html;
+    }
+    location /media {
+        root /home/test.loc/public_html;
+    }
+        </pre>
+    </li>
+</ol>
+
+<h3>More specific example</h3>
+<ul>
+    <li>Click "Create Virtual Server" in Virtualmin`s primary menu.</li>
+    <li>Provide domain name and all other options (admin`s password, etc) as usual for new Virtual Server</li>
+    <li>In "Enabled Features" check the box near "Enable Nginx uWSGI website?". Domain creation comes as usual...</li>
+    <li>After new Virtual Server created go to "Services - Configure virtualenv for website"</li>
+    <li>Select desired Python version and additional modules you want to use for your project.
+    Let`s select Python version 3 and simply write "Django" in "Modules"
+    so virtualenv will be created with Python3 and latest stable Django release onboard</li>
+    <li>Upload your Django project to Virtual Servers "public_html" folder, <i>Warning! Project root must be exactly in "public_html"!</i>
+    Let it be simple blog app from <a href="https://docs.djangoproject.com/en/dev/intro/tutorial01/">here</a></li>
+    <li>Now it is time to really serve your app. Go to "Services - Manage Nginx uWSGI website".
+    There`s not much options here: you can enable SSL to serve app through HTTPS only
+    and you MUST provide WSGI module name, in our example it will be "mysite.wsgi:application" and click "Save"</li>
+</ul>
+Voila! After last step uWSGI config will be finally created and you app will be accessible.
+<footer>

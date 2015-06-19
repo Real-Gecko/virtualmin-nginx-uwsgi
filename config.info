@@ -1,0 +1,14 @@
+nginx_config=Nginx configuration file location,0
+nginx_cmd=Nginx command path,0
+nginx_start=Command to start Nginx,0
+nginx_stop=Command to stop Nginx,0
+nginx_restart=Command to restart Nginx,0
+nginx_user=Nginx user,0
+nginx_sites_available=Nginx "sites-available" path,0
+nginx_sites_enabled=Nginx "sites-enabled" path,0
+uwsgi_config=uwsgi_config,0
+uwsgi_cmd=uWSGI command path,0
+uwsgi_restart=Command to restart uWSGI,0
+uwsgi_apps_available=uWSGI "apps-available" path,0
+uwsgi_apps_enabled=uWSGI "apps-enabled" path,0
+virtualenv_cmd=Full path to "virtualenv" executable
